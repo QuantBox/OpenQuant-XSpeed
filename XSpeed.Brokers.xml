@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfBrokerItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BrokerItem>
+    <Label>飞创信息</Label>
+    <Server>
+      <ServerItem>
+    <BrokerID>0</BrokerID>
+    <Trading>
+      <string>tcp://203.187.171.250:10910</string>
+    </Trading>
+    <MarketData>
+      <string>tcp://203.187.171.250:10915</string>
+    </MarketData>
+    <Label>飞创期货测试</Label>
+  </ServerItem>
+  <ServerItem>
+    <BrokerID>0</BrokerID>
+    <Trading>
+      <string>tcp://203.86.95.181:10910</string>
+    </Trading>
+    <MarketData>
+      <string>tcp://203.86.95.181:10915</string>
+    </MarketData>
+    <Label>飞创期权测试</Label>
+  </ServerItem>
+    </Server>
+  </BrokerItem>
+  <BrokerItem>
+    <Label>银河期货</Label>
+    <Server>
+      <ServerItem>
+    <BrokerID>0</BrokerID>
+    <Trading>
+      <string>tcp://124.207.185.164:10910</string>
+    </Trading>
+    <MarketData>
+      <string>tcp://124.207.185.164:10915</string>
+    </MarketData>
+    <Label>银河期货测试(北京)</Label>
+  </ServerItem>
+    </Server>
+  </BrokerItem>
+</ArrayOfBrokerItem>
