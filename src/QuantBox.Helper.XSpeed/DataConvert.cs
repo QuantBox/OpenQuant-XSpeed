@@ -6,6 +6,12 @@ using System.Text;
 using System.Reflection;
 using QuantBox.CSharp2XSpeed;
 
+#if OQ
+using OpenQuant.API;
+#elif QD
+using SmartQuant.Data;
+#endif
+
 namespace QuantBox.Helper.XSpeed
 {
     public class DataConvert
@@ -13,11 +19,11 @@ namespace QuantBox.Helper.XSpeed
         static FieldInfo tradeField;
         static FieldInfo quoteField;
 
-        public static bool TryConvert(OpenQuant.API.Trade trade, ref DFITCDepthMarketDataField DepthMarketData)
+        public static bool TryConvert(Trade trade, ref DFITCDepthMarketDataField DepthMarketData)
         {
             if (tradeField == null)
             {
-                tradeField = typeof(OpenQuant.API.Trade).GetField("trade", BindingFlags.NonPublic | BindingFlags.Instance);
+                tradeField = typeof(Trade).GetField("trade", BindingFlags.NonPublic | BindingFlags.Instance);
             }
 
             XSpeedTrade t = tradeField.GetValue(trade) as XSpeedTrade;
@@ -29,11 +35,11 @@ namespace QuantBox.Helper.XSpeed
             return false;
         }
 
-        public static bool TryConvert(OpenQuant.API.Quote quote, ref DFITCDepthMarketDataField DepthMarketData)
+        public static bool TryConvert(Quote quote, ref DFITCDepthMarketDataField DepthMarketData)
         {
             if (quoteField == null)
             {
-                quoteField = typeof(OpenQuant.API.Quote).GetField("quote", BindingFlags.NonPublic | BindingFlags.Instance);
+                quoteField = typeof(Quote).GetField("quote", BindingFlags.NonPublic | BindingFlags.Instance);
             }
 
             XSpeedQuote q = quoteField.GetValue(quote) as XSpeedQuote;
