@@ -89,7 +89,7 @@ namespace QuantBox.OQ.XSpeed
             orderRecords.Add(key, new OrderRecord(key));
             Send(key);
         }
-
+#if OQ
         #region OpenQuant下的接口
         public void SendOrderCancelReplaceRequest(OrderCancelReplaceRequest request)
         {
@@ -107,6 +107,7 @@ namespace QuantBox.OQ.XSpeed
         }
         #endregion
 
+#endif
         #region QuantDeveloper下的接口
         public void SendOrderCancelReplaceRequest(FIXOrderCancelReplaceRequest request)
         {
