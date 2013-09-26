@@ -68,11 +68,13 @@ namespace QuantBox.OQ.XSpeed
                 
                 if (null != MarketDataFilter)
                 {
+#if OQ
                     Bar b = MarketDataFilter.FilterBar(bar, args.Instrument.Symbol);
                     if (null != b)
                     {
                         NewBar(this, new BarEventArgs(b, args.Instrument, this));
                     }
+#endif
                 }
                 else
                 {
@@ -98,11 +100,13 @@ namespace QuantBox.OQ.XSpeed
 
                 if (null != MarketDataFilter)
                 {
+#if OQ
                     Bar b = MarketDataFilter.FilterBarOpen(bar, args.Instrument.Symbol);
                     if (null != b)
                     {
                         NewBarOpen(this, new BarEventArgs(b, args.Instrument, this));
                     }
+#endif
                 }
                 else
                 {
@@ -238,10 +242,12 @@ namespace QuantBox.OQ.XSpeed
 
         private void EmitNewQuoteEvent(IFIXInstrument instrument, Quote quote)
         {
+#if OQ
             if (this.MarketDataFilter != null)
             {
                 quote = this.MarketDataFilter.FilterQuote(quote, instrument.Symbol);
             }
+#endif
 
             if (quote != null)
             {
@@ -258,10 +264,12 @@ namespace QuantBox.OQ.XSpeed
 
         private void EmitNewTradeEvent(IFIXInstrument instrument, Trade trade)
         {
+#if OQ
             if (this.MarketDataFilter != null)
             {
                 trade = this.MarketDataFilter.FilterTrade(trade, instrument.Symbol);
             }
+#endif
 
             if (trade != null)
             {
