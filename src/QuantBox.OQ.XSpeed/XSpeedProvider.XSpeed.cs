@@ -39,6 +39,11 @@ namespace QuantBox.OQ.XSpeed
         private fnOnRtnOrder _fnOnRtnOrder_Holder;
         //private fnOnRtnTrade _fnOnRtnTrade_Holder;
 
+        private fnOnRspQuoteSubscribe _fnOnRspQuoteSubscribe_Holder;
+        private fnOnRtnQuoteSubscribe _fnOnRtnQuoteSubscribe_Holder;
+
+
+
         #region 回调
         private void InitCallbacks()
         {
@@ -65,6 +70,8 @@ namespace QuantBox.OQ.XSpeed
             _fnOnRtnMatchedInfo_Holder = OnRtnMatchedInfo;
             _fnOnRtnOrder_Holder = OnRtnOrder;
             //_fnOnRtnTrade_Holder = OnRtnTrade;
+            _fnOnRspQuoteSubscribe_Holder = OnRspQuoteSubscribe;
+            _fnOnRtnQuoteSubscribe_Holder = OnRtnQuoteSubscribe;
         }
         #endregion
 
@@ -247,6 +254,27 @@ namespace QuantBox.OQ.XSpeed
 
             //通知单例
             //CTPAPI.GetInstance().FireOnRtnInstrumentStatus(pInstrumentStatus);
+        }
+        #endregion
+
+        #region 做市商
+        private void OnRspQuoteSubscribe(IntPtr pTraderApi, ref DFITCQuoteSubscribeRspField pRspQuoteSubscribeData)
+        {
+            tdlog.Info("报价通知订阅响应：{0}",
+                pRspQuoteSubscribeData.subscribeFlag);
+        }
+
+        private void OnRtnQuoteSubscribe(IntPtr pTraderApi, ref DFITCQuoteSubscribeRtnField pRtnQuoteSubscribeData)
+        {
+            tdlog.Info("报价通知订阅回报：{0},{1},{2},{3},{4},{5}",
+                pRtnQuoteSubscribeData.quoteID,
+                pRtnQuoteSubscribeData.ExchangeID,
+                pRtnQuoteSubscribeData.InstrumentID,
+                pRtnQuoteSubscribeData.instrumentType,
+                pRtnQuoteSubscribeData.buySellType,
+                pRtnQuoteSubscribeData.source);
+
+            XSpeedAPI.GetInstance().FireOnRtnQuoteSubscribe(pRtnQuoteSubscribeData);
         }
         #endregion
     }

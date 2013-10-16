@@ -204,6 +204,27 @@ namespace QuantBox.Helper.XSpeed
         //}
         //#endregion
 
+        #region 做市商
+        public void ReqQuoteSubscribe()
+        {
+            if (null != m_pTdApi
+                && IntPtr.Zero != m_pTdApi)
+            {
+                TraderApi.TD_ReqQuoteSubscribe(m_pTdApi);
+            }
+        }
+
+        public delegate void RtnQuoteSubscribe(DFITCQuoteSubscribeRtnField pRtnQuoteSubscribeData);
+        public event RtnQuoteSubscribe OnRtnQuoteSubscribe;
+        public void FireOnRtnQuoteSubscribe(DFITCQuoteSubscribeRtnField pRtnQuoteSubscribeData)
+        {
+            if (null != OnRtnQuoteSubscribe)
+            {
+                OnRtnQuoteSubscribe(pRtnQuoteSubscribeData);
+            }
+        }
+        #endregion
+
         #region OnStrategyStart
         public EventHandler OnLive;
         public void EmitOnLive()

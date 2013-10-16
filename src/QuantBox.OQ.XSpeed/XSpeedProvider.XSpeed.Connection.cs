@@ -266,7 +266,7 @@ namespace QuantBox.OQ.XSpeed
                     MdApi.MD_Connect(m_pMdApi,string.Join(";", server.MarketData.ToArray()),account.InvestorId, account.Password,0);
 
                     //向单例对象中注入操作用句柄
-                    //CTPAPI.GetInstance().__RegMdApi(m_pMdApi);
+                    XSpeedAPI.GetInstance().__RegMdApi(m_pMdApi);
                 }
             }
         }
@@ -288,11 +288,13 @@ namespace QuantBox.OQ.XSpeed
                     TraderApi.XSpeed_RegOnRtnInstrumentStatus(m_pMsgQueue, _fnOnRtnInstrumentStatus_Holder);
                     TraderApi.XSpeed_RegOnRtnMatchedInfo(m_pMsgQueue, _fnOnRtnMatchedInfo_Holder);
                     TraderApi.XSpeed_RegOnRtnOrder(m_pMsgQueue, _fnOnRtnOrder_Holder);
+                    TraderApi.XSpeed_RegOnRspQuoteSubscribe(m_pMsgQueue, _fnOnRspQuoteSubscribe_Holder);
+                    TraderApi.XSpeed_RegOnRtnQuoteSubscribe(m_pMsgQueue, _fnOnRtnQuoteSubscribe_Holder);
                     TraderApi.TD_RegMsgQueue2TdApi(m_pTdApi, m_pMsgQueue);
                     TraderApi.TD_Connect(m_pTdApi, string.Join(";", server.Trading.ToArray()), account.InvestorId, account.Password, 0);
 
                     //向单例对象中注入操作用句柄
-                    //CTPAPI.GetInstance().__RegTdApi(m_pTdApi);
+                    XSpeedAPI.GetInstance().__RegTdApi(m_pTdApi);
                 }
             }
         }
@@ -345,7 +347,7 @@ namespace QuantBox.OQ.XSpeed
                     MdApi.MD_ReleaseMdApi(m_pMdApi);
                     m_pMdApi = IntPtr.Zero;
 
-                    //CTPAPI.GetInstance().__RegTdApi(m_pMdApi);
+                    XSpeedAPI.GetInstance().__RegMdApi(m_pMdApi);
                 }
                 _bMdConnected = false;
             }
@@ -361,7 +363,7 @@ namespace QuantBox.OQ.XSpeed
                     TraderApi.TD_ReleaseTdApi(m_pTdApi);
                     m_pTdApi = IntPtr.Zero;
 
-                    //CTPAPI.GetInstance().__RegTdApi(m_pTdApi);
+                    XSpeedAPI.GetInstance().__RegTdApi(m_pTdApi);
                 }
                 _bTdConnected = false;
             }
