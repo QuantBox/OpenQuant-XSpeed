@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantBox.OQ.XSpeed", "QuantBox.OQ.XSpeed\QuantBox.OQ.XSpeed.csproj", "{72BE4BFC-E0F6-436F-8206-C6009932D620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantBox.Helper.XSpeed", "QuantBox.Helper.XSpeed\QuantBox.Helper.XSpeed.csproj", "{97AE93EC-5897-43C8-8D84-D92B73FE1434}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantBox.Helper.XSpeed.QD", "QuantBox.Helper.XSpeed\QuantBox.Helper.XSpeed.QD.csproj", "{265F2810-0696-4A54-929F-40BAC4A717AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantBox.QD.XSpeed", "QuantBox.OQ.XSpeed\QuantBox.QD.XSpeed.csproj", "{EE973A78-4DE7-46F6-88E1-DCF21D2A31D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72BE4BFC-E0F6-436F-8206-C6009932D620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BE4BFC-E0F6-436F-8206-C6009932D620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BE4BFC-E0F6-436F-8206-C6009932D620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BE4BFC-E0F6-436F-8206-C6009932D620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97AE93EC-5897-43C8-8D84-D92B73FE1434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97AE93EC-5897-43C8-8D84-D92B73FE1434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97AE93EC-5897-43C8-8D84-D92B73FE1434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97AE93EC-5897-43C8-8D84-D92B73FE1434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{265F2810-0696-4A54-929F-40BAC4A717AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{265F2810-0696-4A54-929F-40BAC4A717AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{265F2810-0696-4A54-929F-40BAC4A717AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{265F2810-0696-4A54-929F-40BAC4A717AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE973A78-4DE7-46F6-88E1-DCF21D2A31D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE973A78-4DE7-46F6-88E1-DCF21D2A31D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE973A78-4DE7-46F6-88E1-DCF21D2A31D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE973A78-4DE7-46F6-88E1-DCF21D2A31D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
