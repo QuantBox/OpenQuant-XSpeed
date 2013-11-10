@@ -197,17 +197,15 @@ namespace QuantBox.OQ.XSpeed
                     definition.AddField(EFIXField.TickSize, inst.minPriceFluctuation);
                     definition.AddField(EFIXField.SecurityDesc, inst.VarietyName);
                     definition.AddField(EFIXField.Factor, inst.contractMultiplier);
-                    
-                    //definition.AddField(EFIXField.PutOrCall, FIXPutOrCall.Put);
-                    
-                    //try
-                    //{
-                    //    definition.AddField(EFIXField.MaturityDate, DateTime.ParseExact(inst., "yyyyMMdd", CultureInfo.InvariantCulture));
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    tdlog.Warn(ex.Message);
-                    //}
+
+                    try
+                    {
+                        definition.AddField(EFIXField.MaturityDate, DateTime.ParseExact(inst.instrumentMaturity, "yyyy.MM.dd", CultureInfo.InvariantCulture));
+                    }
+                    catch (Exception ex)
+                    {
+                        tdlog.Warn("合约:{0},字段内容:{1},{2}", inst.InstrumentID, inst.instrumentMaturity, ex.Message);
+                    }
 
                     //还得补全内容
 
@@ -234,7 +232,7 @@ namespace QuantBox.OQ.XSpeed
                     definition.AddField(EFIXField.Symbol, inst.InstrumentID);//
                     definition.AddField(EFIXField.SecurityExchange, inst.ExchangeID);
                     definition.AddField(EFIXField.Currency, "CNY");//Currency.CNY
-                    definition.AddField(EFIXField.SecurityDesc, inst.instrumentName);
+                    definition.AddField(EFIXField.SecurityDesc, inst.instrumentName);                    
 
                     if (SecurityDefinition != null)
                     {

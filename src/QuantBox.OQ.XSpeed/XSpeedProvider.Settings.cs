@@ -50,6 +50,7 @@ namespace QuantBox.OQ.XSpeed
         private const string ClosePrefix = "C|";
         private const string CloseTodayPrefix = "T|";
         private const string CloseYesterdayPrefix = "Y|";
+        private const string ExecutePrefix = "E|";
 
         #region 参数设置
         private TimeMode _TimeMode;

@@ -141,39 +141,32 @@ namespace QuantBox.OQ.XSpeed
             DFITCOpenCloseTypeType szCombOffsetFlag;
 
             //根据 梦翔 与 马不停蹄 的提示，新加在Text域中指定开平标志的功能
-            int nOpenCloseFlag = 0;
             if (order.Text.StartsWith(OpenPrefix))
-            {
-                nOpenCloseFlag = 1;
-            }
-            else if (order.Text.StartsWith(ClosePrefix))
-            {
-                nOpenCloseFlag = -1;
-            }
-            else if (order.Text.StartsWith(CloseTodayPrefix))
-            {
-                nOpenCloseFlag = -2;
-            }
-            else if (order.Text.StartsWith(CloseYesterdayPrefix))
-            {
-                nOpenCloseFlag = -3;
-            }
-
-            int leave = (int)order.OrderQty;
-
-            //没写与O|都是开仓
-            if(nOpenCloseFlag>=0)
             {
                 szCombOffsetFlag = DFITCOpenCloseTypeType.OPEN;
             }
-            else if (nOpenCloseFlag == -2)
-            {
-                szCombOffsetFlag = DFITCOpenCloseTypeType.CLOSETODAY;
-            }
-            else
+            else if (order.Text.StartsWith(ClosePrefix))
             {
                 szCombOffsetFlag = DFITCOpenCloseTypeType.CLOSE;
             }
+            else if (order.Text.StartsWith(CloseTodayPrefix))
+            {
+                szCombOffsetFlag = DFITCOpenCloseTypeType.CLOSETODAY;
+            }
+            else if (order.Text.StartsWith(CloseYesterdayPrefix))
+            {
+                szCombOffsetFlag = DFITCOpenCloseTypeType.CLOSE;
+            }
+            else if (order.Text.StartsWith(ExecutePrefix))
+            {
+                szCombOffsetFlag = DFITCOpenCloseTypeType.EXECUTE;
+            }
+            else
+            {
+                szCombOffsetFlag = DFITCOpenCloseTypeType.OPEN;
+            }
+
+            int leave = (int)order.OrderQty;
 
             DFITCSpeculatorType szCombHedgeFlag = SpeculatorType;
 
