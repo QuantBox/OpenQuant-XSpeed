@@ -34,7 +34,7 @@ namespace QuantBox.OQ.XSpeed
         //private fnOnRspQryTradingAccount _fnOnRspQryTradingAccount_Holder;
 
         private fnOnRtnCancelOrder _fnOnRtnCancelOrder_Holder;
-        private fnOnRtnInstrumentStatus _fnOnRtnInstrumentStatus_Holder;
+        private fnOnRtnExchangeStatus _fnOnRtnExchangeStatus_Holder;
         private fnOnRtnMatchedInfo _fnOnRtnMatchedInfo_Holder;
         private fnOnRtnOrder _fnOnRtnOrder_Holder;
         //private fnOnRtnTrade _fnOnRtnTrade_Holder;
@@ -65,7 +65,7 @@ namespace QuantBox.OQ.XSpeed
             //_fnOnRspQryInvestorPosition_Holder = OnRspQryInvestorPosition;
             //_fnOnRspQryTradingAccount_Holder = OnRspQryTradingAccount;
             _fnOnRtnCancelOrder_Holder = OnRtnCancelOrder;
-            _fnOnRtnInstrumentStatus_Holder = OnRtnInstrumentStatus;
+            _fnOnRtnExchangeStatus_Holder = OnRtnExchangeStatus;
             //_fnOnRtnDepthMarketData_Holder = OnRtnDepthMarketData;
             _fnOnRtnMatchedInfo_Holder = OnRtnMatchedInfo;
             _fnOnRtnOrder_Holder = OnRtnOrder;
@@ -246,11 +246,10 @@ namespace QuantBox.OQ.XSpeed
         //#endregion
 
         #region 交易所状态
-        private void OnRtnInstrumentStatus(IntPtr pTraderApi, ref DFITCInstrumentStatusField pInstrumentStatus)
+        private void OnRtnExchangeStatus(IntPtr pTraderApi, ref DFITCExchangeStatusRtnField pRtnExchangeStatusData)
         {
-            tdlog.Info("{0},{1},{2},{3}",
-                pInstrumentStatus.ExchangeID, pInstrumentStatus.InstrumentID,
-                pInstrumentStatus.InstrumentStatus, pInstrumentStatus.EnterReason);
+            tdlog.Info("{0},{1}",
+                pRtnExchangeStatusData.exchangeID, pRtnExchangeStatusData.exchangeStatus);
 
             //通知单例
             //CTPAPI.GetInstance().FireOnRtnInstrumentStatus(pInstrumentStatus);
@@ -266,11 +265,10 @@ namespace QuantBox.OQ.XSpeed
 
         private void OnRtnQuoteSubscribe(IntPtr pTraderApi, ref DFITCQuoteSubscribeRtnField pRtnQuoteSubscribeData)
         {
-            tdlog.Info("报价通知订阅回报：{0},{1},{2},{3},{4},{5}",
+            tdlog.Info("报价通知订阅回报：{0},{1},{2},{3},{4}",
                 pRtnQuoteSubscribeData.quoteID,
                 pRtnQuoteSubscribeData.ExchangeID,
                 pRtnQuoteSubscribeData.InstrumentID,
-                pRtnQuoteSubscribeData.instrumentType,
                 pRtnQuoteSubscribeData.buySellType,
                 pRtnQuoteSubscribeData.source);
 

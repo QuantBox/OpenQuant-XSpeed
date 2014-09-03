@@ -45,7 +45,7 @@ namespace QuantBox.OQ.XSpeed
             InitSettings();
 
             BarFactory = new SmartQuant.Providers.BarFactory();
-            status = ProviderStatus.Unknown;
+            status = ProviderStatus.Disconnected;
             SmartQuant.Providers.ProviderManager.Add(this);
         }
 

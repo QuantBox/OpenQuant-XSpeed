@@ -285,7 +285,7 @@ namespace QuantBox.OQ.XSpeed
                     TraderApi.XSpeed_RegOnRspArbitrageInstrument(m_pMsgQueue, _fnOnRspArbitrageInstrument_Holder);
                     TraderApi.XSpeed_RegOnRspQryExchangeInstrument(m_pMsgQueue, _fnOnRspQryExchangeInstrument_Holder);
                     TraderApi.XSpeed_RegOnRtnCancelOrder(m_pMsgQueue, _fnOnRtnCancelOrder_Holder);
-                    TraderApi.XSpeed_RegOnRtnInstrumentStatus(m_pMsgQueue, _fnOnRtnInstrumentStatus_Holder);
+                    TraderApi.XSpeed_RegOnRtnExchangeStatus(m_pMsgQueue, _fnOnRtnExchangeStatus_Holder);
                     TraderApi.XSpeed_RegOnRtnMatchedInfo(m_pMsgQueue, _fnOnRtnMatchedInfo_Holder);
                     TraderApi.XSpeed_RegOnRtnOrder(m_pMsgQueue, _fnOnRtnOrder_Holder);
                     TraderApi.XSpeed_RegOnRspQuoteSubscribe(m_pMsgQueue, _fnOnRspQuoteSubscribe_Holder);
@@ -513,7 +513,7 @@ namespace QuantBox.OQ.XSpeed
             {
                 timerConnect.Enabled = true;
                 timerDisconnect.Enabled = false;//都连接上了，用不着定时断
-                ChangeStatus(ProviderStatus.LoggedIn);
+                ChangeStatus(ProviderStatus.Connected);
                 isConnected = true;
                 EmitConnectedEvent();
             }

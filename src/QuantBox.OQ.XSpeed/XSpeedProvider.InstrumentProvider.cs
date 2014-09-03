@@ -207,6 +207,13 @@ namespace QuantBox.OQ.XSpeed
                         tdlog.Warn("合约:{0},字段内容:{1},{2}", inst.InstrumentID, inst.instrumentMaturity, ex.Message);
                     }
 
+                    FIXSecurityAltIDGroup group = new FIXSecurityAltIDGroup();
+                    group.SecurityAltID = inst.InstrumentID;
+                    group.SecurityAltExchange = inst.ExchangeID;
+                    group.SecurityAltIDSource = this.Name;
+
+                    definition.AddGroup(group);
+
                     //还得补全内容
 
                     if (SecurityDefinition != null)
