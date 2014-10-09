@@ -166,6 +166,15 @@ namespace QuantBox.OQ.XSpeed
                 szCombOffsetFlag = DFITCOpenCloseTypeType.OPEN;
             }
 
+            DFITCInsertType insertType = DFITCInsertType.BASIC_ORDER;
+            if(order.Text.Length>=3)
+            {
+                if(order.Text[2] == '*')
+                {
+                    insertType = DFITCInsertType.AUTO_ORDER;
+                }
+            }
+
             int leave = (int)order.OrderQty;
 
             DFITCSpeculatorType szCombHedgeFlag = SpeculatorType;
@@ -222,7 +231,8 @@ namespace QuantBox.OQ.XSpeed
                         price,
                         orderType,
                         orderProperty,
-                        nInstrumentType);
+                        nInstrumentType,
+                        insertType);
 
             if (nRet > 0)
             {

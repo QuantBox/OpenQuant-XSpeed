@@ -34,9 +34,8 @@
     <Reference Include="OpenQuant.API">
       <HintPath>D:\Program Files (x86)\SmartQuant Ltd\OpenQuant\Bin\OpenQuant.API.dll</HintPath>
     </Reference>
-    <Reference Include="QuantBox.CSharp2XSpeed, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\SmartQuant Ltd\OpenQuant\Framework\bin\QuantBox.CSharp2XSpeed.dll</HintPath>
+    <Reference Include="QuantBox.CSharp2XSpeed">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\SmartQuant Ltd\OpenQuant\Bin\QuantBox.CSharp2XSpeed.dll</HintPath>
     </Reference>
     <Reference Include="SmartQuant.Data">
       <HintPath>D:\Program Files (x86)\SmartQuant Ltd\OpenQuant\Framework\bin\SmartQuant.Data.dll</HintPath>
